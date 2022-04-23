@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Button, TextField } from "@mui/material";
 import { joiResolver } from "@hookform/resolvers/joi";
 
-import { ThemeContext } from "../../App";
+import { useTheme } from "../../context/ThemeContext";
 import { InputValidator } from "../../validator/inputValidator";
 import { addProductAction } from "../../actions/productActions";
 
@@ -12,7 +11,7 @@ import styles from "./Form.module.css";
 
 export const Form = () => {
   const dispatch = useDispatch();
-  const { darkTheme } = useContext(ThemeContext);
+  const darkTheme = useTheme();
 
   const {
     register,

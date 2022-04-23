@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
-import React, { useContext } from "react";
 
-import { ThemeContext } from "../../App";
+import { useTheme, useThemeUpdate } from "../../context/ThemeContext";
 
 import { Form } from "../Form/Form";
 import { ProductList } from "../ProductList/ProductList";
@@ -9,7 +8,8 @@ import { ProductList } from "../ProductList/ProductList";
 import styles from "./Layout.module.css";
 
 export const Layout = () => {
-  const { darkTheme, toggleTheme } = useContext(ThemeContext);
+  const darkTheme = useTheme();
+  const toggleTheme = useThemeUpdate();
 
   return (
     <div

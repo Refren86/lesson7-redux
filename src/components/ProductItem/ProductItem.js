@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import { Box } from "@mui/system";
 import { Button, Modal, TextField } from "@mui/material";
@@ -9,15 +9,15 @@ import {
   editProductAction,
   removeProductAction,
 } from "../../actions/productActions";
-import { ThemeContext } from "../../App";
+import { useTheme } from "../../context/ThemeContext";
 
 import styles from "./ProductItem.module.css";
 
 export const ProductItem = ({ product, index }) => {
+  const darkTheme = useTheme();
   const dispatch = useDispatch();
   const { id, title, description } = product;
   const { register, handleSubmit } = useForm();
-  const { darkTheme } = useContext(ThemeContext);
   const [isEditable, setIsEditable] = useState(false);
 
   const toggleEdit = () => {
