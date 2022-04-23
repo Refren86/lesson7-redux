@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 12px;
+  margin-top: 25px;
+}
+
+.darkThemeForm {
+  background-color: lightgray;
+}
+
+.formBtn {
+  align-self: flex-start;
+}
+
+.errorPlaceholder {
+  height: 14px;
+}
+
+.error {
+  font-size: 0.9rem;
+  color: red;
+}

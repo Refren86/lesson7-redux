@@ -1,0 +1,13 @@
+.layout {
+  min-height: 100vh;
+}
+
+.layoutDark {
+  background-color: gray;
+  color: snow;
+}
+
+.layoutLight {
+  background-color: snow;
+  color: gray;
+}
