@@ -2,7 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import { ProductItem } from "../ProductItem/ProductItem";
+import { ProductItem } from "../ProductItem";
+
+import styles from "./ProductList.module.css";
 
 export const ProductList = () => {
   const products = useSelector((state) => state.products);
@@ -10,15 +12,8 @@ export const ProductList = () => {
   return (
     <div>
       {products.length ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            rowGap: "25px",
-            marginTop: "25px",
-          }}
-        >
-          <h2 style={{ alignSelf: "center" }}>Products: </h2>
+        <div className={styles.productsContainer}>
+          <h2 className={styles.heading}>Products: </h2>
           <TransitionGroup>
             {products.map((product, index) => (
               <CSSTransition
@@ -32,7 +27,7 @@ export const ProductList = () => {
           </TransitionGroup>
         </div>
       ) : (
-        <h1 style={{ textAlign: "center" }}>
+        <h1 className={styles.heading}>
           There are no products at the moment, try adding one 🙂
         </h1>
       )}

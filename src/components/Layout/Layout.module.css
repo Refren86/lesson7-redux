@@ -2,12 +2,23 @@
   min-height: 100vh;
 }
 
+.wrapper {
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
 .layoutDark {
-  background-color: gray;
-  color: snow;
+  background-color: var(--grey-color);
+  color: var(--white-color);
 }
 
 .layoutLight {
-  background-color: snow;
-  color: gray;
+  background-color: var(--white-color);
+  color: var(--grey-color);
+}
+
+.toggleBtn {
+  text-align: center;
+  padding-top: 15px;
 }

@@ -1,24 +1,20 @@
 import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 
-import { Box } from "@mui/system";
-import { Button, Modal, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 
-import {
-  editProductAction,
-  removeProductAction,
-} from "../../actions/productActions";
+import { ModalWindow } from "../Modal/Modal";
 import { useTheme } from "../../context/ThemeContext";
+import { removeProductAction } from "../../actions/productActions";
 
 import styles from "./ProductItem.module.css";
 
 export const ProductItem = ({ product, index }) => {
   const darkTheme = useTheme();
   const dispatch = useDispatch();
-  const { id, title, description } = product;
-  const { register, handleSubmit } = useForm();
   const [isEditable, setIsEditable] = useState(false);
+
+  const { id, title, description } = product;
 
   const toggleEdit = () => {
     setIsEditable(!isEditable);
@@ -28,11 +24,6 @@ export const ProductItem = ({ product, index }) => {
     dispatch(removeProductAction(id));
   };
 
-  const submitChanges = (data) => {
-    dispatch(editProductAction({ ...data, id }));
-    toggleEdit();
-  };
-
   return (
     <div
       className={`${styles.productBlock} ${
@@ -40,40 +31,11 @@ export const ProductItem = ({ product, index }) => {
       }`}
     >
       {isEditable && (
-        <Modal open={isEditable} onClose={toggleEdit}>
-          <Box className={styles.modal}>
-            <form onSubmit={handleSubmit(submitChanges)}>
-              <TextField
-                fullWidth
-                label="Enter new title"
-                variant="outlined"
-                defaultValue={title}
-                {...register("newTitle")}
-              />
-              <TextField
-                fullWidth
-                label="Enter new description"
-                variant="outlined"
-                sx={{ mt: 2 }}
-                defaultValue={description}
-                {...register("newDescription")}
-              />
-              <Box sx={{ mt: 2 }}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  sx={{ mr: 2 }}
-                >
-                  Apply
-                </Button>
-                <Button onClick={toggleEdit} variant="contained" color="error">
-                  Cancel
-                </Button>
-              </Box>
-            </form>
-          </Box>
-        </Modal>
+        <ModalWindow
+          isEditable={isEditable}
+          toggleEdit={toggleEdit}
+          item={product}
+        />
       )}
 
       <div className={styles.productInfo}>
@@ -84,7 +46,12 @@ export const ProductItem = ({ product, index }) => {
         <p>{description}</p>
 
         <div className={styles.buttonsWrapper}>
-          <Button onClick={toggleEdit} variant="contained" color="primary">
+          <Button
+            onClick={toggleEdit}
+            variant="contained"
+            color="primary"
+            disabled={isEditable}
+          >
             Edit
           </Button>
 

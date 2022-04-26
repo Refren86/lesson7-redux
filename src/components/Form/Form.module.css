@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  border: 2px solid black;
+  border: 2px solid var(--black-color);
   border-radius: 7px;
   padding: 12px;
   margin-top: 25px;
 }
 
 .darkThemeForm {
-  background-color: lightgray;
+  background-color: var(--light-grey-color);
 }
 
 .formBtn {
@@ -22,5 +22,5 @@
 
 .error {
   font-size: 0.9rem;
-  color: red;
+  color: var(--red-color);
 }

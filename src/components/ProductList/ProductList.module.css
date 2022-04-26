@@ -1,0 +1,10 @@
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  margin-top: 25px;
+}
+
+.heading {
+  text-align: center;
+}

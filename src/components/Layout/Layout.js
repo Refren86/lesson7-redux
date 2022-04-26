@@ -1,9 +1,7 @@
 import { Button } from "@mui/material";
 
+import { Form, ProductList } from "../";
 import { useTheme, useThemeUpdate } from "../../context/ThemeContext";
-
-import { Form } from "../Form/Form";
-import { ProductList } from "../ProductList/ProductList";
 
 import styles from "./Layout.module.css";
 
@@ -17,13 +15,13 @@ export const Layout = () => {
         darkTheme ? styles.layoutDark : styles.layoutLight
       }`}
     >
-      <div style={{ textAlign: "center", paddingTop: "15px" }}>
+      <div className={styles.toggleBtn}>
         <Button onClick={toggleTheme} variant="contained" color="secondary">
           Toggle Theme
         </Button>
       </div>
 
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <Form />
 
         <ProductList />

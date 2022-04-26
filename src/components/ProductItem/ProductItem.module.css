@@ -1,18 +1,18 @@
 .productBlock {
   padding: 12px;
   margin-bottom: 25px;
-  border: 2px solid black;
+  border: 2px solid var(--black-color);
   border-radius: 8px;
 }
 
 .productBlockDark {
-  background-color: lightgrey;
-  color: black;
+  background-color: var(--light-grey-color);
+  color: var(--black-color);
 }
 
 .productBlockLight {
-  background-color: snow;
-  color: #008080;
+  background-color: var(--white-color);
+  color: var(--teal-color);
 }
 
 .productInfo {
@@ -24,16 +24,4 @@
 .buttonsWrapper {
   display: flex;
   column-gap: 10px;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  background-color: #fff;
-  border: 2px solid #000;
-  border-radius: 8px;
-  padding: 14px;
 }
