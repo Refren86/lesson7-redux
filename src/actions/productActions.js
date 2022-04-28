@@ -5,8 +5,8 @@ import {
 } from "../constants/products";
 
 export const addProductAction = (payload) => ({ type: ADD_PRODUCT, payload });
-export const removeProductAction = (payload) => ({
+export const removeProductAction = (id) => ({
   type: REMOVE_PRODUCT,
-  payload,
+  id,
 });
 export const editProductAction = (payload) => ({ type: EDIT_PRODUCT, payload });
